@@ -3,7 +3,7 @@ import * as DB from 'database'
 import { v4 as uuidv4 } from 'uuid'
 export const database: IData[][] = Object.values(DB).map((item: IDBData[]) =>
   item.map((subcat: IDBData) => ({ ...subcat, id: uuidv4() }))
-);
+)
 
 export const sidebarData: ISidebar[] = [
   {
@@ -45,6 +45,11 @@ export const sidebarData: ISidebar[] = [
         name: 'accessibility',
         url: '/accessibility',
         resources: DB.accessibility,
+      },
+      {
+        name: 'ui Libraries',
+        url: '/ui-libraries',
+        resources: DB.uilibraries,
       },
     ],
   },
@@ -102,6 +107,7 @@ export const sidebarData: ISidebar[] = [
       { name: 'Kotlin', url: '/kotlin', resources: DB.kotlin },
       { name: 'Rust', url: '/rust', resources: DB.Rust },
       { name: 'Dart', url: '/dart', resources: DB.dart },
+      { name: 'Solidity', url: '/solidity', resources: DB.solidity },
     ],
   },
   {
@@ -111,6 +117,11 @@ export const sidebarData: ISidebar[] = [
         name: 'Articles',
         url: '/articles',
         resources: DB.openSourceArticles,
+      },
+      {
+        name: 'Programs',
+        url: '/os-programs',
+        resources: DB.openSourcePrograms,
       },
       {
         name: 'Projects',
@@ -144,6 +155,7 @@ export const sidebarData: ISidebar[] = [
         resources: DB.devopsMethodologies,
       },
       { name: 'docker', url: '/docker', resources: DB.docker },
+      { name: 'jenkins', url: '/jenkins', resources: DB.jenkins },
       {
         name: 'kubernetes',
         url: '/kubernetes',
@@ -175,6 +187,11 @@ export const sidebarData: ISidebar[] = [
         url: '/deep-learning',
         resources: DB.deepLearning,
       },
+      {
+        name: 'NLP',
+        url: '/natural-language-processing',
+        resources: DB.nlp,
+      },
     ],
   },
   {
@@ -202,7 +219,7 @@ export const sidebarData: ISidebar[] = [
       },
     ],
   },
- 
+
   {
     category: 'cloud-computing',
     subcategory: [
@@ -221,7 +238,7 @@ export const sidebarData: ISidebar[] = [
     category: 'internet-of-things',
     subcategory: [
       { name: 'coursera', url: '/coursera', resources: DB.coursera },
-      { name: 'raspberry', url: '/raspberry', resources: DB.raspberrypi },
+      { name: 'raspberrypi', url: '/raspberrypi', resources: DB.raspberrypi },
     ],
   },
   {
@@ -235,7 +252,8 @@ export const sidebarData: ISidebar[] = [
       },
       { name: 'hosting', url: '/hosting', resources: DB.hosting },
       { name: 'e-book', url: '/e-book', resources: DB.ebook },
-      { name: 'project ideas', url: '/project-ideas', resources: DB.project },
+      { name: 'dsa', url: '/dsa', resources: DB.dsa },
+      { name: 'project ideas', url: '/project-ideas', resources: DB.project }
     ],
   },
   {
@@ -258,11 +276,6 @@ export const sidebarData: ISidebar[] = [
         resources: DB.machineLearning,
       },
       { name: 'tensorflow', url: '/tensorflow', resources: DB.tensorflow },
-      {
-        name: 'data structures',
-        url: '/data-structures',
-        resources: DB.dataStructures,
-      },
       { name: 'Android', url: '/android', resources: DB.android },
       {
         name: 'Web3 & Metaverse',
@@ -286,6 +299,17 @@ export const sidebarData: ISidebar[] = [
         resources: DB.gameDevelopment,
       },
     ],
+  },
+  {
+    category:'data-structures',
+    subcategory:[
+      {
+        name:'DSA Articles',url:'/dsa-articles',resources:DB.dsaArticles,
+      },
+      {
+        name:'DSA Tutorials',url:'/dsa-tutorials',resources:DB.dsaTutorials,
+      }
+    ]
   },
   {
     category: 'competitive-programming',
@@ -328,7 +352,11 @@ export const sidebarData: ISidebar[] = [
   {
     category: 'technical-writing',
     subcategory: [
-      { name: 'Technical Writing Tools', url: '/technical-writing-tools', resources: DB.technicalWritingTools },
+      {
+        name: 'Technical Writing Tools',
+        url: '/technical-writing-tools',
+        resources: DB.technicalWritingTools,
+      },
     ],
   },
   {
@@ -345,8 +373,9 @@ export const sidebarData: ISidebar[] = [
       },
       { name: 'Communities', url: '/communities', resources: DB.communities },
       { name: 'Roadmaps', url: '/roadmaps', resources: DB.roadmaps },
+      { name: 'Domains', url: '/domains', resources: DB.domains },
     ],
-  },
+  }
 ]
 
 export const subCategories = sidebarData.flatMap(({ category, subcategory }) =>
